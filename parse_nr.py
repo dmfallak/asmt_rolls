@@ -77,28 +77,28 @@ def main():
 
         
         if "FULL MARKET VALUE" in line:
-            market_value = line[line.index("FULL MARKET VALUE") + 17:].strip().split(" ")[0].replace(",", "")
+            market_value = line[line.index("FULL MARKET VALUE") + 17:].strip().split(" ")[0].replace(",", "") or "0"
 
         if "COUNTY TAXABLE VALUE" in line:
-            county_tax = line[line.index("COUNTY TAXABLE VALUE") + 20:].strip().split(" ")[0].replace(",", "")
+            county_tax = line[line.index("COUNTY TAXABLE VALUE") + 20:].strip().split(" ")[0].replace(",", "") or "0"
 
         if "CITY     TAXABLE VALUE" in line:
-            city_tax = line[line.index("CITY     TAXABLE VALUE") + 22:].strip().split(" ")[0].replace(",", "")
+            city_tax = line[line.index("CITY     TAXABLE VALUE") + 22:].strip().split(" ")[0].replace(",", "") or "0"
 
         if "SCHOOL TAXABLE VALUE" in line:
-            school_tax = line[line.index("SCHOOL TAXABLE VALUE") + 20:].strip().split(" ")[0].replace(",", "")
+            school_tax = line[line.index("SCHOOL TAXABLE VALUE") + 20:].strip().split(" ")[0].replace(",", "") or "0"
 
         if "Built:" in line:
-            year_built = line[line.index("Built:") + 7:][:4]
+            year_built = line[line.index("Built:") + 7:][:4].strip() or "0"
 
         if "ACRES" in line:
-            parcel_size = line[line.index("ACRES") + 5:].strip().split(" ")[0]
+            parcel_size = line[line.index("ACRES") + 5:].strip().split(" ")[0] or "0"
         
         if "EAST-" in line:
-            grid_coord_east = line[line.index("EAST-") + 5:][:7]
+            grid_coord_east = line[line.index("EAST-") + 5:][:7].strip() or "0"
         
         if "NRTH-" in line:
-            grid_coord_north = line[line.index("NRTH-") + 5:][:7]
+            grid_coord_north = line[line.index("NRTH-") + 5:][:7].strip() or "0"
         
         if "DEED BOOK" in line:
             deed_book = line[line.index("DEED BOOK") + 9:].strip().split(" ")
