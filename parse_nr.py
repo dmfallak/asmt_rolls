@@ -14,15 +14,15 @@ def main():
     owner_address = ""
     property_class = ""
     school_district = "NEW ROCHELLE CS 551000"
-    parcel_size = ""
-    grid_coord_east = ""
-    grid_coord_north = ""
+    parcel_size = "0"
+    grid_coord_east = "0"
+    grid_coord_north = "0"
     deed_book = ""
-    market_value = ""
-    county_tax = ""
-    city_tax = ""
-    school_tax = ""
-    year_built = ""
+    market_value = "0"
+    county_tax = "0"
+    city_tax = "0"
+    school_tax = "0"
+    year_built = "0"
 
     in_parcel = False
     address_next = False
@@ -34,7 +34,21 @@ def main():
         if "***" in line:
             if in_parcel:
                 output(parcel_id, parcel_address, city, owner_name, owner_address, property_class, school_district, parcel_size, grid_coord_east, grid_coord_north, deed_book, market_value, county_tax, city_tax, school_tax, year_built)
-                year_built = ""
+                parcel_id = ""
+                parcel_address = ""
+                owner_name = ""
+                owner_address = ""
+                property_class = ""
+                deed_book = ""
+                parcel_size = "0"
+                grid_coord_east = "0"
+                grid_coord_north = "0"
+                market_value = "0"
+                county_tax = "0"
+                city_tax = "0"
+                school_tax = "0"
+                year_built = "0"
+
                 owner_lines = []
             if "-" in line:
                 in_parcel = True
