@@ -100,9 +100,12 @@ def main():
         if "NRTH " in line:
             grid_coord_north = line[line.index("NRTH ") + 5:][:6].strip() or "0"
         
-        if "DEED BOOK" in line:
-            deed_book = line[line.index("DEED BOOK") + 9:].strip().split(" ")
-            deed_book = deed_book[0] + " " + deed_book[1]
+        if "DEED BK" in line:
+            deed_book = line[line.index("DEED BK") + 7:].strip().split(" ")
+            deed_book_str = deed_book[0] + " " + deed_book[1]
+            if len(deed_book) > 2:
+                deed_book_str = deed_book_str + " " + deed_book[2]
+            deed_book = deed_book_str
 
 
 if __name__ == "__main__":
